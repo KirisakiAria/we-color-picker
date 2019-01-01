@@ -15,11 +15,6 @@
 ```
 git clone https://github.com/KirisakiAria/we-color-picker.git
 ```
-### npm
-
-```
-npm install we-color-picker --save
-```
 
 将项目中src目录下的全部文件拷贝到/components/color-picker中，在使用该组件的页面对应json文件中添加：
 ```json
