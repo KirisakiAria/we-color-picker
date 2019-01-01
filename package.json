@@ -1,0 +1,36 @@
+{
+  "name": "we-color-picker",
+  "version": "1.0.0",
+  "description": "A simple colorpicker component for wechat mini program☕",
+  "main": "miniprogram_dist/index.js",
+  "keywords": ["wechat", "color-picker", "we-color-picker"],
+  "scripts": {
+    "dev": "gulp dev --develop",
+    "watch": "gulp watch --develop --watch",
+    "build": "gulp",
+    "dist": "npm run build",
+    "clean-dev": "gulp clean --develop",
+    "clean": "gulp clean",
+    "test": "jest ./test/* --silent --bail",
+    "coverage": "jest ./test/* --coverage --bail",
+    "lint": "eslint \"src/**/*.js\"",
+    "lint-tools": "eslint \"tools/**/*.js\" --rule \"import/no-extraneous-dependencies: false\""
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "testURL": "https://jest.test",
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KirisakiAria/we-color-picker.git"
+  },
+  "author": "kirisakiaria",
+  "license": "MIT"
+}

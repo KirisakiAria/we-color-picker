@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "拾色器DEMO",
+  "usingComponents": {
+    "color-picker": "/components/color-picker/color-picker"
+  }
+}

@@ -1,0 +1,23 @@
+<view class="container color-picker-demo">
+    <view class="c">点击显示/隐藏拾色器</view>
+    <view class="wrapper" data-id="1" bindtap="toggleColorPicker">
+        <view calss="current" data-id="1" catchtap="toggleColorPicker">
+            <text>颜色1：</text>
+            <text class="hex">{{colorData1.pickerData.hex}}</text>
+        </view>
+        <view class="color" data-id="1" catchtap="toggleColorPicker" style="background:{{colorData1.pickerData.hex}}"></view>
+    </view>
+    <view class="color-picker-wrapper" wx:if="{{showColorPicker1}}">
+        <color-picker data-id="1" class="color-picker" colorData="{{colorData1}}" rpxRatio="{{rpxRatio}}" bindchangecolor="onChangeColor"></color-picker>
+    </view>
+    <view class="wrapper" data-id="2" bindtap="toggleColorPicker">
+        <view calss="current" data-id="2" catchtap="toggleColorPicker">
+            <text>颜色2：</text>
+            <text class="hex">{{colorData2.pickerData.hex}}</text>
+        </view>
+        <view class="color" data-id="2" catchtap="toggleColorPicker" style="background:{{colorData2.pickerData.hex}}"></view>
+    </view>
+    <view class="color-picker-wrapper" wx:if="{{showColorPicker2}}">
+        <color-picker data-id="2" class="color-picker" colorData="{{colorData2}}" rpxRatio="{{rpxRatio}}" bindchangecolor="onChangeColor"></color-picker>
+    </view>
+</view>
