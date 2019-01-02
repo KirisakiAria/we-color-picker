@@ -6,7 +6,7 @@
 
 ## 查看DEMO
 
-![小插件库](https://i.loli.net/2019/01/02/5c2c2f86a2426.jpg)
+![小插件库](https://i.loli.net/2019/01/02/5c2c2f86cce15.jpg)
 
 ## 安装使用
 
@@ -28,7 +28,7 @@ git clone https://github.com/KirisakiAria/we-color-picker.git
 
 仿照PS的色相立方体制作而成
 
-![color-picker](https://i.loli.net/2019/01/02/5c2c2f86cce15.jpg)
+![color-picker](https://i.loli.net/2019/01/02/5c2c2f86a2426.jpg)
 
 ## WXML
 
