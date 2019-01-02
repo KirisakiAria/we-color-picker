@@ -87,35 +87,50 @@
   padding: 25rpx;
 }
 .color-picker-demo .wrapper {
+  position: relative;
+  margin-bottom: 25rpx;
+}
+.color-picker-demo .wrapper .flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff;
   padding: 25rpx;
-  margin-bottom: 25rpx;
+  background: #fff;
 }
-.color-picker-demo .current {
+.color-picker-demo .wrapper .flex .current {
   font-size: 34rpx;
   background: #fff;
   display: flex;
   justify-content: space-between;
 }
-.color-picker-demo .current text {
+.color-picker-demo .wrapper .flex .current text {
   display: inline-block;
   vertical-align: middle;
 }
-.color-picker-demo .current .hex {
+.color-picker-demo .wrapper .flex .current .hex {
   width: 150rpx;
 }
-.color-picker-demo .color {
+.color-picker-demo .wrapper .flex .color {
   width: 60rpx;
   height: 60rpx;
   margin-left: 30rpx;
   border: 2rpx solid #666;
 }
-.color-picker-demo .color-picker-wrapper {
-  padding: 25rpx 0;
-  margin-bottom: 25rpx;
+.color-picker-demo .wrapper.wrapper-absolute .color-picker-wrapper {
+  padding: 25rpx;
   background: #fff;
+  position: absolute;
+  right: 20rpx;
+  top: 115rpx;
+  z-index: 50;
+  box-shadow: 1rpx 1rpx 12rpx 8rpx #ccc;
+}
+.color-picker-demo .wrapper.wrapper-relative {
+  background: #fff;
+}
+.color-picker-demo .wrapper.wrapper-relative .color-picker-wrapper {
+  padding: 25rpx;
+  display: flex;
+  justify-content: center;
 }
 /*# sourceMappingURL=./color_picker_demo.wxss.map */

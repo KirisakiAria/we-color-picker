@@ -11,42 +11,62 @@
     }
 
     .wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .bw;
-        padding: 25rpx;
+        position: relative;
         margin-bottom: 25rpx;
-    }
 
-    .current {
-        font-size: 34rpx;
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25rpx;
+            .bw;
 
-        .bw;
-        display: flex;
-        justify-content: space-between;
+            .current {
+                font-size: 34rpx;
 
-        text {
-            display: inline-block;
-            vertical-align: middle;
+                .bw;
+                display: flex;
+                justify-content: space-between;
+
+                text {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+                .hex {
+                    width: 150rpx;
+                }
+
+            }
+
+            .color {
+                width: 60rpx;
+                height: 60rpx;
+                margin-left: 30rpx;
+                border: 2rpx solid #666;
+            }
         }
 
-        .hex {
-            width: 150rpx;
+        &.wrapper-absolute {
+            .color-picker-wrapper {
+                padding: 25rpx;
+                .bw;
+                position: absolute;
+                right: 20rpx;
+                top: 115rpx;
+                z-index: 50;
+                box-shadow: 1rpx 1rpx 12rpx 8rpx #ccc;
+            }
         }
 
+        &.wrapper-relative {
+            .bw;
+            .color-picker-wrapper {
+                padding: 25rpx;
+                display: flex;
+                justify-content: center;
+            }
+        }
     }
 
-    .color {
-        width: 60rpx;
-        height: 60rpx;
-        margin-left: 30rpx;
-        border: 2rpx solid #666;
-    }
-
-    .color-picker-wrapper {
-        padding: 25rpx 0;
-        margin-bottom: 25rpx;
-        .bw;
-    }
 }

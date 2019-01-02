@@ -2,7 +2,7 @@ const app = getApp()
 
 Page({
   data: {
-    showColorPicker1: false,
+    showColorPicker1: true,
     showColorPicker2: false,
     colorData1: {
       //基础色相(色盘右上顶点的颜色)
@@ -57,7 +57,7 @@ Page({
   onChangeColor(e) {
     const index = e.target.dataset.id
     this.setData({
-      [`colorData${index}`]: e.detail.colorData,
+      [`colorData${index}`]: e.detail.colorData
     })
   },
   toggleColorPicker(e) {

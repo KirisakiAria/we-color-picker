@@ -78,8 +78,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.color-picker-container .wrapper {
+.color-picker-container {
   width: 600rpx;
+}
+.color-picker-container .wrapper {
   margin: auto;
 }
 .color-picker-container .pick-area {

@@ -2,8 +2,6 @@
 
 微信小程序拾色器（颜色选择器）组件☕
 
-> ❗❗ 由于本人水平的原因，在使用该组件时的一些设置限制的比较严格，请务必认真阅读本文档。
-
 ## 查看DEMO
 
 ![小插件库](https://i.loli.net/2019/01/02/5c2c2f86cce15.jpg)
@@ -35,9 +33,6 @@ git clone https://github.com/KirisakiAria/we-color-picker.git
 ```HTML
 <color-picker class="color-picker" colorData="{{colorData}}" rpxRatio="{{rpxRatio}}" bindchangecolor="onChangeColor"></color-picker>
 ```
-
-## 可能导致错误的样式问题
-❗❗ color-picker自身和其祖先元素切勿使用定位样式(除非拾色器右上角与页面右上角重合的特殊情况)，否则将导致拾色器选择点位置错误。
 
 ## 参数
 
