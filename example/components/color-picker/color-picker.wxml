@@ -1,7 +1,7 @@
 <view id="wrapper" class="color-picker-container">
     <view class="wrapper">
         <view class="pick-area">
-            <view class="color-picker-map" bindtouchmove="_chooseColor">
+            <view class="color-picker-map" bindtouchmove="_chooseColor" bindtap="_chooseColor">
                 <view class="color-picker-map-item solid" style="background:rgb({{hueData.colorStopRed}},{{hueData.colorStopGreen}},{{hueData.colorStopBlue}})"></view>
                 <view class="color-picker-map-item white" style="background:linear-gradient(to right, rgba(255,255,255,1), rgba({{hueData.colorStopRed}},{{hueData.colorStopGreen}},{{hueData.colorStopBlue}},0));"></view>
                 <view class="color-picker-map-item black" style="background:linear-gradient(to top, rgba(0,0,0,1), rgba({{hueData.colorStopRed}},{{hueData.colorStopGreen}},{{hueData.colorStopBlue}},0));">
