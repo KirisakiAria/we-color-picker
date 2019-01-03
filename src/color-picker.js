@@ -29,7 +29,9 @@ Component({
     //色相控制条位置
     barY: 0,
     top: 0, //组件的位置
-    left: 0
+    left: 0,
+    scrollTop: 0, //滚动位置
+    scrollLeft: 0
   },
   lifetimes: {
     attached() {
@@ -42,20 +44,23 @@ Component({
     ready() {
       const _this = this
       const query = wx.createSelectorQuery().in(this)
-      query.select('#wrapper').boundingClientRect(rect => {
-        console.log(rect.top)
+      query.select('#wrapper').boundingClientRect()
+      query.selectViewport().scrollOffset()
+      query.exec(res => {
         _this.setData({
-          top: rect.top,
-          left: rect.left
+          top: res[0].top,
+          left: res[0].left,
+          scrollTop: res[1].scrollTop,
+          scrollLeft: res[1].scrollLeft
         })
-      }).exec()
+      })
     }
   },
   methods: {
     //选中颜色
     _chooseColor(e) {
-      let x = (e.changedTouches[0].pageX - this.data.left) / this.data.rpxRatio
-      let y = (e.changedTouches[0].pageY - this.data.top) / this.data.rpxRatio
+      let x = (e.changedTouches[0].pageX - this.data.left - this.data.scrollLeft) / this.data.rpxRatio
+      let y = (e.changedTouches[0].pageY - this.data.top - this.data.scrollTop) / this.data.rpxRatio
       x = x > 480 ? 480 : x
       y = y > 480 ? 480 : y
       x = x < 0 ? 0 : x
@@ -68,7 +73,7 @@ Component({
     },
     //拖动色相bar
     _changeBar(e) {
-      let y = (e.changedTouches[0].pageY - this.data.top) / this.data.rpxRatio
+      let y = (e.changedTouches[0].pageY - this.data.top - this.data.scrollTop) / this.data.rpxRatio
       y = y > 490 ? 490 : y
       y = y < 0 ? 0 : y
       this.setData({

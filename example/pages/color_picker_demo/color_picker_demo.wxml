@@ -26,4 +26,5 @@
                 bindchangecolor="onChangeColor"></color-picker>
         </view>
     </view>
+    <view class="link">拾色器项目地址：https://github.com/KirisakiAria/we-color-picker</view>
 </view>
