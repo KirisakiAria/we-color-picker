@@ -9,6 +9,7 @@
             <view class="color" style="background:{{colorData1.pickerData.hex}}"></view>
         </view>
         <view class="color-picker-wrapper" wx:if="{{showColorPicker1}}">
+            <view class="mask" data-id="1" bindtap="toggleColorPicker"></view>
             <color-picker data-id="1" class="color-picker" colorData="{{colorData1}}" rpxRatio="{{rpxRatio}}"
                 bindchangecolor="onChangeColor"></color-picker>
         </view>
@@ -22,6 +23,7 @@
             <view class="color" style="background:{{colorData2.pickerData.hex}}"></view>
         </view>
         <view class="color-picker-wrapper" wx:if="{{showColorPicker2}}">
+            <view class="mask" data-id="2" bindtap="toggleColorPicker"></view>
             <color-picker data-id="2" class="color-picker" colorData="{{colorData2}}" rpxRatio="{{rpxRatio}}"
                 bindchangecolor="onChangeColor"></color-picker>
         </view>

@@ -123,7 +123,7 @@
   position: absolute;
   right: 20rpx;
   top: 115rpx;
-  z-index: 50;
+  z-index: 5;
   box-shadow: 1rpx 1rpx 12rpx 8rpx #ccc;
 }
 .color-picker-demo .wrapper.wrapper-relative {
@@ -133,6 +133,18 @@
   padding: 25rpx;
   display: flex;
   justify-content: center;
+}
+.color-picker-demo .wrapper.wrapper-relative .color-picker {
+  position: relative;
+  z-index: 2;
+}
+.color-picker-demo .wrapper .color-picker-wrapper .mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
 }
 .color-picker-demo .link {
   padding: 25rpx;
