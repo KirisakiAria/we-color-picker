@@ -48,6 +48,7 @@
             }
         }
 
+
         &.wrapper-absolute {
             .color-picker-wrapper {
                 padding: 25rpx;
@@ -55,37 +56,31 @@
                 position: absolute;
                 right: 20rpx;
                 top: 115rpx;
-                z-index: 5;
+                z-index: 10;
                 box-shadow: 1rpx 1rpx 12rpx 8rpx #ccc;
             }
         }
 
         &.wrapper-relative {
-            .bw;
-
             .color-picker-wrapper {
+                position: relative;
+                z-index: 10;
+                .bw;
                 padding: 25rpx;
                 display: flex;
                 justify-content: center;
             }
-
-            .color-picker {
-                position: relative;
-                z-index: 2;
-            }
         }
+    }
 
-        .color-picker-wrapper {
-            .mask {
-                position: fixed;
-                left: 0;
-                top: 0;
-                width: 100vw;
-                height: 100vh;
-                z-index: 1;
-            }
-        }
-
+    .mask {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        background: transparent;
     }
 
     .link {

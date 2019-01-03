@@ -66,6 +66,12 @@ Page({
       [`showColorPicker${index}`]: !this.data[`showColorPicker${index}`]
     })
   },
+  closeColorPicker() {
+    this.setData({
+      showColorPicker1: false,
+      showColorPicker2: false
+    })
+  },
   onShareAppMessage(res) {
     return {
       title: '小插件库-拾色器',

@@ -1,5 +1,6 @@
 <view class="container color-picker-demo">
     <view class="c">点击显示/隐藏拾色器</view>
+    <view class="mask" bindtap="closeColorPicker" wx:if="{{showColorPicker1||showColorPicker2}}"></view>
     <view class="wrapper wrapper-absolute">
         <view class="flex" data-id="1" bindtap="toggleColorPicker">
             <view calss="current">
@@ -9,7 +10,6 @@
             <view class="color" style="background:{{colorData1.pickerData.hex}}"></view>
         </view>
         <view class="color-picker-wrapper" wx:if="{{showColorPicker1}}">
-            <view class="mask" data-id="1" bindtap="toggleColorPicker"></view>
             <color-picker data-id="1" class="color-picker" colorData="{{colorData1}}" rpxRatio="{{rpxRatio}}"
                 bindchangecolor="onChangeColor"></color-picker>
         </view>
@@ -23,7 +23,6 @@
             <view class="color" style="background:{{colorData2.pickerData.hex}}"></view>
         </view>
         <view class="color-picker-wrapper" wx:if="{{showColorPicker2}}">
-            <view class="mask" data-id="2" bindtap="toggleColorPicker"></view>
             <color-picker data-id="2" class="color-picker" colorData="{{colorData2}}" rpxRatio="{{rpxRatio}}"
                 bindchangecolor="onChangeColor"></color-picker>
         </view>

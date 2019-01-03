@@ -102,15 +102,15 @@
   border: 2rpx solid transparent;
 }
 .color-picker-container .pick-area .color-picker-map .color-picker-map-item.white {
-  z-index: 1;
+  z-index: 10;
 }
 .color-picker-container .pick-area .color-picker-map .color-picker-map-item.black {
-  z-index: 2;
+  z-index: 11;
   border: 2rpx solid #666;
 }
 .color-picker-container .pick-area .color-picker-map .picker {
   position: absolute;
-  z-index: 3;
+  z-index: 12;
   width: 20rpx;
   height: 20rpx;
   border: 2rpx solid #666;
@@ -126,7 +126,7 @@
 }
 .color-picker-container .pick-area .color-picker-bar .picker {
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   width: 110%;
   height: 10rpx;
   left: 50%;

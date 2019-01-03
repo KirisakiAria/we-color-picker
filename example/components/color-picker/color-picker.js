@@ -15,7 +15,7 @@ Component({
     hueData: {
       colorStopRed: 255,
       colorStopGreen: 0,
-      colorStopBlue: 0,
+      colorStopBlue: 0
     },
     //选择点的颜色
     pickerData: {
