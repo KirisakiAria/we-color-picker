@@ -40,7 +40,7 @@ npm install we-color-picker --save
 <color-picker class="color-picker" colorData="{{colorData}}" rpxRatio="{{rpxRatio}}" bindchangecolor="onChangeColor"></color-picker>
 ```
 
-## 参数
+## JS
 
 ```javascript
 data: {
@@ -64,8 +64,7 @@ data: {
         barY: 0
     },
     rpxRatio: 1 //此值为你的屏幕CSS像素宽度/750，单位rpx实际像素
-}
-
+},
 onLoad() {
     //设置rpxRatio
     wx.getSystemInfo({
@@ -75,15 +74,13 @@ onLoad() {
             })
         }
     })
-}
-```
-
-## 事件
-
-```javascript
+},
 //选择改色时触发（在左侧色盘触摸或者切换右侧色相条）
 onChangeColor(e) {
-    //e.detail.colorData与参数中的colorData一致
+    //返回的信息在e.detail.colorData中
+    this.setData({
+      colorData: e.detail.colorData
+    })
 }
 ```
 
@@ -111,8 +108,7 @@ data: {
         //...
     },
     //More...
-}
-
+},
 onChangeColor(e) {
     //这里我使用了dataset来存储标志，用来判断时哪个拾色器发生变化
     const index = e.target.dataset.id
