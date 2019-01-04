@@ -1,6 +1,6 @@
 {
   "name": "we-color-picker",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "A simple colorpicker component for wechat mini program☕",
   "main": "miniprogram_dist/index.js",
   "keywords": ["wechat", "color-picker", "we-color-picker"],
