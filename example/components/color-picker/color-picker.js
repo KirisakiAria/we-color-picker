@@ -72,6 +72,7 @@ Component({
       this._changeColor(x, y)
     },
     //拖动色相bar
+    //这个地方选择出来的颜色就是色盘最右上角的颜色
     _changeBar(e) {
       let y = (e.changedTouches[0].pageY - this.data.top - this.data.scrollTop) / this.data.rpxRatio
       y = y > 490 ? 490 : y
@@ -83,11 +84,12 @@ Component({
     },
     //改变颜色
     _changeColor(x, y) {
-      //色相
+      //获取色相（色盘最右上角的颜色）
       const sRed = this.data.hueData.colorStopRed
       const sGreen = this.data.hueData.colorStopGreen
       const sBlue = this.data.hueData.colorStopBlue
       //选择的颜色
+      //实际上这里是先算出假设y等于0时(不考虑Y轴)的颜色，后面需要再减去y*比例的颜色值
       let [pRed, pGreen, pBlue] = [this.data.pickerData.red, this.data.pickerData.green, this.data.pickerData.blue]
       //首先计算X轴
       if (sRed === 255) {
@@ -119,7 +121,7 @@ Component({
         pBlue = 255
       }
 
-      //计算完X轴的值再根据这个值去计算Y轴
+      //考虑Y轴，减去y*比例的颜色值，得到最终颜色
       const redRatioY = pRed / 480
       const greenRatioY = pGreen / 480
       const blueRatioY = pBlue / 480
@@ -140,8 +142,8 @@ Component({
     },
     //改变色相
     _changeHue(y) {
-      //根据色相bar的长度(490)计算出每拖动bar 0.32就改变一次色相
-      //色相的变化一共分为六个阶段,每次拖动81.67就完成一个阶段
+      //根据色相bar的长度(490)计算出每拖动0.32距离就改变一次色相（R或G或B的值增减1）
+      //色相的变化一共分为六个阶段,每次拖动81.67距离就完成一个阶段
       if (y < 81.67) {
         const value = y / .32 > 255 ? 255 : y / .32
         this.setData({
