@@ -2,6 +2,9 @@
 
 微信小程序拾色器（颜色选择器）组件☕
 
+[![](https://img.shields.io/npm/v/we-color-picker.svg)](https://www.npmjs.com/package/we-color-picker/)
+[![](https://img.shields.io/badge/小程序-@拾色器-green.svg)]()
+
 ## 查看DEMO
 
 ![小插件库](https://i.loli.net/2019/01/02/5c2c2f86cce15.jpg)
