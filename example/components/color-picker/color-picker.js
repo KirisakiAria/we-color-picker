@@ -31,7 +31,8 @@ Component({
     top: 0, //组件的位置
     left: 0,
     scrollTop: 0, //滚动位置
-    scrollLeft: 0
+    scrollLeft: 0,
+    timer: 0,
   },
   lifetimes: {
     attached() {
@@ -59,17 +60,22 @@ Component({
   methods: {
     //选中颜色
     _chooseColor(e) {
+      clearTimeout(this.data.timer)
       let x = (e.changedTouches[0].pageX - this.data.left - this.data.scrollLeft) / this.data.rpxRatio
       let y = (e.changedTouches[0].pageY - this.data.top - this.data.scrollTop) / this.data.rpxRatio
       x = x > 480 ? 480 : x
       y = y > 480 ? 480 : y
       x = x < 0 ? 0 : x
       y = y < 0 ? 0 : y
+      const { pickerData } = this.data
+      pickerData.x = x
+      pickerData.y = y
       this.setData({
-        ['pickerData.x']: x,
-        ['pickerData.y']: y
+        pickerData,
+        timer: setTimeout(() => {
+          this._changeColor(x, y)
+        }, 50)
       })
-      this._changeColor(x, y)
     },
     //拖动色相bar
     //这个地方选择出来的颜色就是色盘最右上角的颜色
@@ -130,11 +136,13 @@ Component({
       const greenValueY = y * greenRatioY
       const blueValueY = y * blueRatioY
       const hex = this._rgbToHex(pRed - redValueY, pGreen - greenValueY, pBlue - blueValueY)
+      const { pickerData } = this.data
+      pickerData.red = Math.round(pRed - redValueY)
+      pickerData.green = Math.round(pGreen - greenValueY)
+      pickerData.blue = Math.round(pBlue - blueValueY)
+      pickerData.hex = hex
       this.setData({
-        ['pickerData.red']: Math.round(pRed - redValueY),
-        ['pickerData.green']: Math.round(pGreen - greenValueY),
-        ['pickerData.blue']: Math.round(pBlue - blueValueY),
-        ['pickerData.hex']: hex
+        pickerData
       })
       this.triggerEvent('changecolor', {
         colorData: this.data
@@ -144,54 +152,46 @@ Component({
     _changeHue(y) {
       //根据色相bar的长度(490)计算出每拖动0.32距离就改变一次色相（R或G或B的值增减1）
       //色相的变化一共分为六个阶段,每次拖动81.67距离就完成一个阶段
+      const { hueData } = this.data
       if (y < 81.67) {
         const value = y / .32 > 255 ? 255 : y / .32
-        this.setData({
-          ['hueData.colorStopRed']: 255,
-          ['hueData.colorStopGreen']: Math.round(value),
-          ['hueData.colorStopBlue']: 0
-        })
+        hueData.colorStopRed = 255
+        hueData.colorStopGreen = Math.round(value)
+        hueData.colorStopBlue = 0
       }
       if (y >= 81.67 && y < 163.34) {
         const value = (y - 81.67) / .32 > 255 ? 255 : (y - 81.67) / .32
-        this.setData({
-          ['hueData.colorStopRed']: 255 - Math.round(value),
-          ['hueData.colorStopGreen']: 255,
-          ['hueData.colorStopBlue']: 0
-        })
+        hueData.colorStopRed = 255 - Math.round(value)
+        hueData.colorStopGreen = 255
+        hueData.colorStopBlue = 0
       }
       if (y >= 163.34 && y < 245.01) {
         const value = (y - 163.34) / .32 > 255 ? 255 : (y - 163.34) / .32
-        this.setData({
-          ['hueData.colorStopRed']: 0,
-          ['hueData.colorStopGreen']: 255,
-          ['hueData.colorStopBlue']: Math.round(value)
-        })
+        hueData.colorStopRed = 0
+        hueData.colorStopGreen = 255
+        hueData.colorStopBlue = Math.round(value)
       }
       if (y >= 245.01 && y < 326.68) {
         const value = (y - 245.01) / .32 > 255 ? 255 : (y - 245.01) / .32
-        this.setData({
-          ['hueData.colorStopRed']: 0,
-          ['hueData.colorStopGreen']: 255 - Math.round(value),
-          ['hueData.colorStopBlue']: 255
-        })
+        hueData.colorStopRed = 0
+        hueData.colorStopGreen = 255 - Math.round(value)
+        hueData.colorStopBlue = 255
       }
       if (y >= 326.68 && y < 408.35) {
         const value = (y - 326.68) / .32 > 255 ? 255 : (y - 326.68) / .32
-        this.setData({
-          ['hueData.colorStopRed']: Math.round(value),
-          ['hueData.colorStopGreen']: 0,
-          ['hueData.colorStopBlue']: 255
-        })
+        hueData.colorStopRed = Math.round(value)
+        hueData.colorStopGreen = 0
+        hueData.colorStopBlue = 255
       }
       if (y >= 408.35) {
         const value = (y - 408.35) / .32 > 255 ? 255 : (y - 408.35) / .32
-        this.setData({
-          ['hueData.colorStopRed']: 255,
-          ['hueData.colorStopGreen']: 0,
-          ['hueData.colorStopBlue']: 255 - Math.round(value)
-        })
+        hueData.colorStopRed = 255
+        hueData.colorStopGreen = 0
+        hueData.colorStopBlue = 255 - Math.round(value)
       }
+      this.setData({
+        hueData
+      })
       //改变完色相需要再次改变选择的颜色
       this._changeColor(this.data.pickerData.x, this.data.pickerData.y)
     },
