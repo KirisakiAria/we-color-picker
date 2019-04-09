@@ -30,7 +30,7 @@ npm install we-color-picker --save
     "color-picker":"/components/color-picker/color-picker"
 }
 ```
-具体如何引入组件请参考[微信小程序官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html)
+具体如何引入组件请参考[微信小程序官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/)
 
 ## 截图示例
 
