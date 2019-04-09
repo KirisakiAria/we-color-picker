@@ -2,9 +2,9 @@
 
 微信小程序拾色器（颜色选择器）组件☕
 
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 [![](https://img.shields.io/npm/v/we-color-picker.svg)](https://www.npmjs.com/package/we-color-picker/)
 [![](https://img.shields.io/badge/小程序-@拾色器-green.svg)]()
-[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 
 ## 查看DEMO
 
