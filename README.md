@@ -125,7 +125,3 @@ onChangeColor(e) {
 ## 遇到问题?
 
 [Issue](https://github.com/KirisakiAria/we-color-picker/issues)
-
-wechat: thereshegoes 
-
-email: xiaoli350791904@hotmail.com
